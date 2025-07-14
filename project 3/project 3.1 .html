@@ -1,187 +1,0 @@
-<!DOCTYPE html> <!-- يحدد أن الصفحة تستخدم HTML5 -->
-
-<html lang="en"> <!-- بداية صفحة HTML وتحديد اللغة الافتراضية الإنجليزية -->
-
-<head>
-  <meta charset="UTF-8" /> <!-- يحدد الترميز ليكون UTF-8 الذي يدعم جميع الحروف -->
-  <meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- يجعل الموقع متجاوبًا مع الجوالات -->
-  <title>Discover Tunisia</title> <!-- عنوان الصفحة الذي يظهر في تبويب المتصفح -->
-
-  <!-- ربط مكتبة Bootstrap من CDN (لأزرار وتخطيطات جاهزة) -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- تحميل Tailwind CSS من CDN (مكتبة utility-classes لتنسيق الصفحة) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <style>
-    /* إعادة تعيين الإعدادات الافتراضية لكل العناصر */
-    * {
-      margin: 0; /* إزالة الهوامش */
-      padding: 0; /* إزالة التباعد الداخلي */
-      box-sizing: border-box; /* يشمل الحواف وال padding ضمن الحجم */
-    }
-
-    /* إعدادات عامة للصفحة */
-    body, html {
-      height: 100%; /* يجعل الصفحة بطول الشاشة */
-      font-family: 'Segoe UI', sans-serif; /* نوع الخط الأساسي */
-      color: white; /* لون النص الأساسي أبيض */
-      overflow-x: hidden; /* منع التمرير الأفقي */
-    }
-
-    /* تنسيق الفيديو الخلفي */
-    #bgVideo {
-      position: fixed; /* يثبّت الفيديو في الخلفية */
-      top: 0; /* يبدأ من أعلى الصفحة */
-      left: 0; /* يبدأ من اليسار */
-      min-width: 100%; /* يغطي العرض بالكامل */
-      min-height: 100%; /* يغطي الارتفاع بالكامل */
-      object-fit: cover; /* يجعل الفيديو يغطي بدون تشويه */
-      z-index: -1; /* الفيديو خلف باقي العناصر */
-      filter: brightness(0.4); /* تعتيم الفيديو لتسهيل قراءة النص */
-    }
-
-    /* تنسيق غلاف المحتوى (نصوص + بطاقات) */
-    .content-wrapper {
-      background-color: rgba(0, 0, 0, 0.5); /* خلفية سوداء شفافة */
-      padding: 50px 20px; /* مسافة داخلية من الأعلى والأسفل والجانبين */
-      border-radius: 16px; /* زوايا دائرية */
-    }
-
-    /* تنسيق البطاقة الواحدة */
-    .card {
-      background-color: rgba(255, 255, 255, 0.85); /* خلفية شبه شفافة */
-      color: #000; /* لون النص داخل البطاقة أسود */
-      border: none; /* بدون حدود */
-      border-radius: 12px; /* زوايا ناعمة */
-      overflow: hidden; /* إخفاء الزائد من الصور */
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* ظل خارجي */
-      transition: transform 0.3s ease; /* تأثير حركة عند المرور */
-    }
-
-    .card:hover {
-      transform: translateY(-5px); /* رفع البطاقة قليلاً عند تمرير الماوس */
-    }
-
-    /* تنسيق العنوان الرئيسي */
-    h1 {
-      color: #00ccff; /* لون سماوي */
-      font-weight: bold; /* خط غامق */
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* ظل خلف النص */
-    }
-
-    /* تنسيق الفوتر */
-    footer {
-      color: #aee2f9; /* أزرق فاتح */
-      text-shadow: 0 1px 4px rgba(0,0,0,0.4); /* ظل خفيف للنص */
-    }
-  </style>
-</head>
-
-<body>
-
-  <!-- فيديو خلفية يعمل تلقائيًا وبشكل صامت ويعيد التشغيل -->
-  <video autoplay muted loop id="bgVideo">
-    <source src="sky.MP4" type="video/mp4"> <!-- رابط الفيديو ونوعه -->
-    Your browser does not support the video tag. <!-- يظهر إذا لم يدعم المتصفح الفيديو -->
-  </video>
-
-  <!-- المحتوى الرئيسي داخل حاوية مركزية -->
-  <div class="container text-center my-5 content-wrapper">
-    <h1 class="text-4xl mb-3">Discover Tunisia</h1> <!-- عنوان رئيسي بحجم كبير -->
-    <p class="text-lg text-blue-100 mb-5">🌴 Let's explore together...</p> <!-- وصف بجانب العنوان -->
-
-    <!-- شبكة الكروت: 1 عمود على الشاشات الصغيرة، 2 على المتوسطة، 3 على الكبيرة -->
-    <div id="citiesContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- هنا توضع بطاقات المدن ديناميكيًا بواسطة JavaScript -->
-    </div>
-  </div>
-
-  <!-- الفوتر -->
-  <footer class="text-center py-4 text-sm">
-    &copy; 2025 Discover Tunisia. All rights reserved. <!-- حقوق النشر -->
-  </footer>
-
-  <!-- كود JavaScript لعرض المدن -->
-  <script>
-    // مصفوفة تحتوي بيانات المدن
-    const citiesData = [
-      {
-        name: "Sidi Bou Said", // اسم المدينة
-        description: "A picturesque town...", // وصف مختصر
-        image: "IMG_0745.JPG" // اسم الصورة
-      },
-      {
-        name: "Carthage",
-        description: "An ancient city with Roman ruins...",
-        image: "IMG_0746.JPG"
-      },
-      {
-        name: "Djerba",
-        description: "A peaceful island...",
-        image: "IMG_0747.JPG"
-      },
-      {
-        name: "Tozeur",
-        description: "An oasis town near the desert...",
-        image: "IMG_0748.PNG"
-      },
-      {
-        name: "El Jem",
-        description: "Home to one of the world’s largest Roman amphitheaters...",
-        image: "IMG_0749.JPG"
-      },
-      {
-        name: "Matmata",
-        description: "Famous for its underground troglodyte houses...",
-        image: "IMG_0750.JPG"
-      },
-      {
-        name: "Kairouan",
-        description: "A holy city known for the Great Mosque...",
-        image: "IMG_0751.PNG"
-      },
-      {
-        name: "Bulla Regia",
-        description: "Ancient Roman site with unique underground villas...",
-        image: "IMG_0752.PNG"
-      },
-      {
-        name: "Ain Draham",
-        description: "A mountain town with red-roofed houses...",
-        image: "IMG_0753.JPG"
-      }
-    ];
-
-    // دالة لجلب المدن وعرضها
-    async function loadCities() {
-      // محاكاة لجلب البيانات بعد 0.5 ثانية
-      const response = await new Promise(resolve => {
-        setTimeout(() => resolve({ json: () => citiesData }), 500); // يرجع البيانات كما لو كانت من سيرفر
-      });
-
-      const cities = await response.json(); // استخراج البيانات
-
-      const container = document.getElementById("citiesContainer"); // تحديد مكان إدخال الكروت
-
-      // إنشاء الكروت باستخدام .map()
-      const cards = cities.map(city => {
-        return `
-          <div class="card">
-            <img src="${city.image}" alt="${city.name}" class="w-full h-56 object-cover">
-            <div class="p-4">
-              <h3 class="text-xl font-semibold text-blue-800 mb-2">${city.name}</h3>
-              <p class="text-gray-800">${city.description}</p>
-            </div>
-          </div>
-        `;
-      });
-
-      container.innerHTML = cards.join(""); // إدراج الكروت داخل العنصر
-    }
-
-    loadCities(); // تنفيذ الدالة عند تحميل الصفحة
-  </script>
-
-</body>
-</html>
