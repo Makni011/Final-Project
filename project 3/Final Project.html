@@ -1,0 +1,190 @@
+<!DOCTYPE html> <!-- يحدد أن الصفحة مكتوبة بلغة HTML5 -->
+
+<html lang="en"> <!-- بداية مستند HTML واللغة الأساسية إنجليزية -->
+
+<head>
+  <meta charset="UTF-8" /> <!-- ترميز الحروف UTF-8 يدعم العربية واللغات العالمية -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- يجعل الصفحة تتناسب مع مختلف أحجام الشاشات -->
+  <title>Discover Tunisia</title> <!-- عنوان الصفحة في تبويب المتصفح -->
+
+  <!-- ✅ تحميل مكتبة Bootstrap من CDN (للعناصر الجاهزة مثل الأزرار والتخطيطات) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- ✅ تحميل مكتبة Tailwind CSS من CDN (مكتبة تنسيقات سريعة باستخدام classes) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* ✅ إعادة تعيين التنسيقات الافتراضية لكل العناصر */
+    * {
+      margin: 0; /* إزالة الهوامش */
+      padding: 0; /* إزالة المسافات الداخلية */
+      box-sizing: border-box; /* الحشو والحواف يدخلان ضمن الأبعاد */
+    }
+
+    /* ✅ إعدادات عامة للجسم والصفحة */
+    body, html {
+      height: 100%; /* الصفحة تأخذ الطول الكامل للشاشة */
+      font-family: 'Segoe UI', sans-serif; /* الخط المستخدم في الصفحة */
+      color: white; /* النص يكون أبيض افتراضيًا */
+      overflow-x: hidden; /* منع التمرير الأفقي */
+    }
+
+    /* ✅ تنسيق فيديو الخلفية */
+    #bgVideo {
+      position: fixed; /* تثبيت الفيديو في الخلفية */
+      top: 0; /* من أعلى الشاشة */
+      left: 0; /* من يسار الشاشة */
+      min-width: 100%; /* يغطي عرض الشاشة بالكامل */
+      min-height: 100%; /* يغطي طول الشاشة بالكامل */
+      object-fit: cover; /* جعل الفيديو يملأ الشاشة دون تمدد أو تشويه */
+      z-index: -1; /* يضع الفيديو خلف كل العناصر */
+      filter: brightness(0.4); /* تعتيم الفيديو لجعل النص بارز */
+    }
+
+    /* ✅ تغليف المحتوى بخلفية شفافة */
+    .content-wrapper {
+      background-color: rgba(0, 0, 0, 0.5); /* خلفية سوداء شبه شفافة */
+      padding: 50px 20px; /* مسافة داخلية */
+      border-radius: 16px; /* زوايا مستديرة */
+    }
+
+    /* ✅ تصميم بطاقات المدن */
+    .card {
+      background-color: rgba(255, 255, 255, 0.85); /* لون أبيض شفاف */
+      color: #000; /* نص أسود داخل البطاقة */
+      border: none; /* بدون حدود */
+      border-radius: 12px; /* زوايا دائرية للكرت */
+      overflow: hidden; /* إخفاء أي محتوى زائد */
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* ظل خارجي للكرت */
+      transition: transform 0.3s ease; /* تأثير حركة ناعمة */
+    }
+
+    /* ✅ تأثير عند تمرير الماوس */
+    .card:hover {
+      transform: translateY(-5px); /* رفع البطاقة قليلاً عند التمرير */
+    }
+
+    /* ✅ تصميم العنوان الرئيسي */
+    h1 {
+      color: #00ccff; /* لون أزرق سماوي */
+      font-weight: bold; /* خط عريض */
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* ظل للنص */
+    }
+
+    /* ✅ تصميم الفوتر */
+    footer {
+      color: #aee2f9; /* لون أزرق فاتح */
+      text-shadow: 0 1px 4px rgba(0,0,0,0.4); /* ظل بسيط للنص */
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ✅ فيديو الخلفية -->
+  <video autoplay muted loop id="bgVideo"> <!-- يبدأ تلقائيًا، صامت، ويعيد التشغيل -->
+    <source src="sky.MP4" type="video/mp4"> <!-- ملف الفيديو -->
+    Your browser does not support the video tag. <!-- نص بديل في حالة عدم دعم الفيديو -->
+  </video>
+
+  <!-- ✅ الحاوية الرئيسية للمحتوى -->
+  <div class="container text-center my-5 content-wrapper"> <!-- Bootstrap + Tailwind لتوسيط المحتوى -->
+    <h1 class="text-4xl mb-3">Discover Tunisia</h1> <!-- العنوان الرئيسي بحجم كبير -->
+    <p class="text-lg text-blue-100 mb-5">
+      🌴 Let's explore together some of the most beautiful cities in the world in Tunisia 🇹🇳
+    </p> <!-- وصف توضيحي -->
+
+    <!-- ✅ مكان عرض كروت المدن -->
+    <div id="citiesContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- يتم إنشاء الكروت داخل هذا العنصر باستخدام JavaScript -->
+    </div>
+  </div>
+
+  <!-- ✅ الفوتر -->
+  <footer class="text-center py-4 text-sm"> <!-- محاذاة وسطية وخط صغير -->
+    &copy; 2025 Discover Tunisia. All rights reserved. <!-- حقوق النشر -->
+  </footer>
+
+  <!-- ✅ كود JavaScript المسؤول عن عرض المدن -->
+  <script>
+    // ✅ مصفوفة تحتوي على معلومات كل مدينة
+    const citiesData = [
+      {
+        name: "Sidi Bou Said", // اسم المدينة
+        description: "A picturesque town known for its blue-and-white architecture and stunning views over the Mediterranean Sea.", // وصف مختصر
+        image: "IMG_0745.JPG" // اسم صورة المدينة
+      },
+      {
+        name: "Carthage",
+        description: "An ancient city with Roman ruins by the sea, offering a mix of history and beautiful coastal views.",
+        image: "IMG_0746.JPG"
+      },
+      {
+        name: "Djerba",
+        description: "A peaceful island with sandy beaches, traditional markets, and a rich blend of Berber and Arab culture.",
+        image: "IMG_0747.JPG"
+      },
+      {
+        name: "Tozeur",
+        description: "An oasis town near the desert, known for its palm groves, traditional architecture, and nearby salt lakes.",
+        image: "IMG_0748.PNG"
+      },
+      {
+        name: "El Jem",
+        description: "Home to one of the world’s largest Roman amphitheaters, offering a glimpse into Tunisia’s ancient glory.",
+        image: "IMG_0749.JPG"
+      },
+      {
+        name: "Matmata",
+        description: "Famous for its underground troglodyte houses carved into the earth, used as a film location in Star Wars.",
+        image: "IMG_0750.JPG"
+      },
+      {
+        name: "Kairouan",
+        description: "A holy city known for the Great Mosque, rich Islamic heritage, and vibrant traditional markets.",
+        image: "IMG_0751.PNG"
+      },
+      {
+        name: "Bulla Regia",
+        description: "Ancient Roman site with unique underground villas that are perfectly preserved beneath the surface.",
+        image: "IMG_0752.PNG"
+      },
+      {
+        name: "Ain Draham",
+        description: "A mountain town with red-roofed houses surrounded by forests, ideal for nature and hiking lovers.",
+        image: "IMG_0753.JPG"
+      }
+    ];
+
+    // ✅ دالة لعرض المدن داخل الصفحة
+    async function loadCities() {
+      // محاكاة لجلب البيانات بعد نصف ثانية
+      const response = await new Promise(resolve => {
+        setTimeout(() => resolve({ json: () => citiesData }), 500); // يُرجع البيانات بعد 500 مللي ثانية
+      });
+
+      const cities = await response.json(); // استخراج البيانات من "الرد"
+
+      const container = document.getElementById("citiesContainer"); // تحديد العنصر الذي نريد تعبئته بالكروت
+
+      // إنشاء كروت المدن باستخدام map
+      const cards = cities.map(city => {
+        return `
+          <div class="card">
+            <img src="${city.image}" alt="${city.name}" class="w-full h-56 object-cover"> <!-- صورة المدينة -->
+            <div class="p-4"> <!-- محتوى البطاقة -->
+              <h3 class="text-xl font-semibold text-blue-800 mb-2">${city.name}</h3> <!-- اسم المدينة -->
+              <p class="text-gray-800">${city.description}</p> <!-- وصف المدينة -->
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = cards.join(""); // إدخال كل الكروت داخل الحاوية
+    }
+
+    loadCities(); // تنفيذ الدالة بعد تحميل الصفحة
+  </script>
+
+</body>
+</html>
