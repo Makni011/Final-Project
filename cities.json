@@ -1,0 +1,48 @@
+[
+  {
+    "name": "Sidi Bou Said",  
+    "description": "A picturesque town known for its blue-and-white architecture and stunning views over the Mediterranean Sea.",
+    "image": "IMG_0745.JPG" 
+    
+  },
+  {
+    "name": "Carthage",
+    "description": "An ancient city with Roman ruins by the sea, offering a mix of history and beautiful coastal views.",
+    "image": "IMG_0746.JPG"
+  },
+  {
+    "name": "Djerba",
+    "description": "A peaceful island with sandy beaches, traditional markets, and a rich blend of Berber and Arab culture.",
+    "image": "IMG_0747.JPG"
+  },
+  {
+    "name": "Tozeur",
+    "description": "An oasis town near the desert, known for its palm groves, traditional architecture, and nearby salt lakes.",
+    "image": "IMG_0748.PNG"
+  },
+  {
+    "name": "El Jem",
+    "description": "Home to one of the world’s largest Roman amphitheaters, offering a glimpse into Tunisia’s ancient glory.",
+    "image": "IMG_0749.JPG"
+  },
+  {
+    "name": "Matmata",
+    "description": "Famous for its underground troglodyte houses carved into the earth, used as a film location in Star Wars.",
+    "image": "IMG_0750.JPG"
+  },
+  {
+    "name": "Kairouan",
+    "description": "A holy city known for the Great Mosque, rich Islamic heritage, and vibrant traditional markets.",
+    "image": "IMG_0751.PNG"
+  },
+  {
+    "name": "Bulla Regia",
+    "description": "Ancient Roman site with unique underground villas that are perfectly preserved beneath the surface.",
+    "image": "IMG_0752.PNG"
+  },
+  {
+    "name": "Ain Draham",
+    "description": "A mountain town with red-roofed houses surrounded by forests, ideal for nature and hiking lovers.",
+    "image": "IMG_0753.JPG"
+  }
+]
