@@ -1,0 +1,62 @@
+/* إعادة تعيين الهوامش والحشوات لجميع العناصر */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* تنسيقات عامة للجسم والصفحة */
+body, html {
+  height: 100%; /* طول كامل الشاشة */
+  font-family: 'Segoe UI', sans-serif;
+  color: white; /* النص أبيض بشكل افتراضي */
+  overflow-x: hidden; /* منع التمرير الأفقي */
+}
+
+/* تنسيق فيديو الخلفية */
+#bgVideo {
+  position: fixed; /* ثابت في الخلف */
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover; /* يملأ كامل الشاشة بدون تشويه */
+  z-index: -1; /* خلف كل المحتوى */
+  filter: brightness(0.4); /* تقليل سطوع الفيديو */
+}
+
+/* تنسيق الحاوية المحتوية على المحتوى */
+.content-wrapper {
+  background-color: rgba(0, 0, 0, 0.5); /* خلفية سوداء شفافة */
+  padding: 50px 20px;
+  border-radius: 16px; /* زوايا مستديرة */
+}
+
+/* تنسيق بطاقات المدن */
+.card {
+  background-color: rgba(255, 255, 255, 0.85); /* خلفية شبه شفافة */
+  color: #000; /* نص داخل البطاقة أسود */
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+/* تأثير رفع البطاقة عند التمرير عليها */
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* تنسيق عنوان الصفحة (لو كان موجود داخل HTML) */
+h1 {
+  color: #00ccff;
+  font-weight: bold;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* تنسيق تذييل الصفحة */
+footer {
+  color: #aee2f9;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
