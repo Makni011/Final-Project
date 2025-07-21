@@ -1,0 +1,219 @@
+<!DOCTYPE html> <!-- 
+<! — علامة تبدأ مستند HTML / Start of HTML document 
+DOCTYPE — تعني "نوع المستند" / DOCTYPE means "Document Type"
+html — يُشير إلى أن المستند من نوع HTML5 / This is an HTML5 document 
+-->
+
+<html lang="en"> <!-- 
+<html — بداية وسم HTML، يفتح صفحة الويب / Opens the HTML document
+lang — اختصار "language" تعني اللغة / "lang" stands for language 
+"en" — تعني الإنجليزية / "en" means English
+-->
+
+<head> <!-- 
+<head — رأس الصفحة، يحتوي على معلومات مخفية مثل العنوان والروابط / Head section: contains metadata and links
+-->
+
+  <meta charset="UTF-8" /> <!-- 
+  meta — وسم ميتا لتحديد معلومات غير مرئية / Meta tag for invisible data
+  charset — تعني مجموعة الأحرف / Character set
+  "UTF-8" — ترميز يدعم جميع اللغات / Encoding that supports all characters
+  -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- 
+  name — اسم الخاصية / Property name
+  "viewport" — تعني نافذة العرض / Viewport of the device
+  content — القيم التي سيتم تطبيقها / Values to apply
+  width=device-width — يجعل عرض الصفحة بحجم الشاشة / Width = device screen size
+  initial-scale=1 — التكبير 1x بدون زوم / No zoom initially
+  -->
+
+  <!-- بيانات تحسين الظهور في محركات البحث / SEO meta tags -->
+
+  <meta name="description" content="Explore Tunisia’s most captivating cities — where History, Nature, And Culture come together."> <!-- 
+  description — وصف قصير للموقع / Short description of the site
+  content — المحتوى الذي يظهر لمحركات البحث / Content shown to search engines
+  -->
+
+  <meta name="keywords" content="Tunisia, Tourism, Travel, Cities, Explore Tunisia, Vacation, Culture"> <!-- 
+  keywords — كلمات مفتاحية تساعد في البحث / Search keywords
+  -->
+
+  <meta name="author" content="Abdallah Makni"> <!-- 
+  author — اسم من أنشأ الموقع / Website creator's name (Me 😎)
+  -->
+
+  <title>Discover Tunisia</title> <!-- 
+  title — عنوان يظهر في تبويب المتصفح / Tab title
+  Discover — تعني اكتشف / Means "explore"
+  Tunisia — تونس / Tunisia
+  -->
+
+  <!-- تحميل مكتبة Bootstrap من الإنترنت / Load Bootstrap from CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- 
+  link — وسم لربط ملفات خارجية / Used to link external files
+  href — عنوان الرابط / URL of the resource
+  rel — العلاقة، هنا "stylesheet" تعني ملف تنسيقات / Relation = stylesheet (CSS)
+  -->
+
+  <!-- تحميل Tailwind CSS / Load Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script> <!-- 
+  script — وسم لربط ملفات JavaScript / Used for JavaScript or frameworks
+  src — مصدر الملف / File source (URL)
+  -->
+
+  <!-- ربط ملف التنسيقات المحلي / Link to local CSS file -->
+  <link rel="stylesheet" href="style.css"> <!-- 
+  rel="stylesheet" — هذا الملف يحتوي على تنسيقات / CSS file
+  href — يشير إلى اسم الملف / File path (style.css)
+  -->
+
+</head>
+
+<body> <!-- 
+<body — بداية جسم الصفحة / Start of the webpage content
+-->
+
+  <!-- فيديو كخلفية للموقع / Background video -->
+  <video autoplay muted loop id="bgVideo"> <!-- 
+  video — وسم للفيديو / HTML video element
+  autoplay — تشغيل تلقائي / Automatically play
+  muted — بدون صوت / No sound
+  loop — يتكرر / Loops forever
+  id="bgVideo" — معرف العنصر لربطه بـ CSS أو JavaScript / ID = bgVideo
+  -->
+
+    <source src="sky.MP4" type="video/mp4" /> <!-- 
+    source — مصدر الفيديو / Video source
+    src="sky.MP4" — اسم ملف الفيديو / Video filename
+    type="video/mp4" — نوع الملف / File type (MP4)
+    -->
+
+    Your browser does not support the video tag. <!-- 
+    رسالة تظهر إذا كان المتصفح لا يدعم الفيديو / Fallback message if video tag is not supported
+    -->
+
+  </video>
+
+  <!-- ركن الطقس والوقت في الزاوية العليا اليمنى / Weather and time in top-right -->
+  <div id="weatherTime" class="fixed top-4 right-4 bg-black bg-opacity-50 text-white p-3 rounded-lg shadow-lg flex items-center space-x-3 font-sans z-50"> 
+    <!-- 
+    div — عنصر حاوي / Container element
+    id="weatherTime" — معرف العنصر / Element ID
+    class — مجموعة من تنسيقات Tailwind:
+    fixed — ثابت في مكانه / Fixed position
+    top-4 — مسافة من الأعلى / Top spacing
+    right-4 — مسافة من اليمين / Right spacing
+    bg-black — خلفية سوداء / Black background
+    bg-opacity-50 — شفافية 50% / 50% opacity
+    text-white — نص أبيض / White text
+    p-3 — حشوة داخلية / Padding
+    rounded-lg — زوايا مدورة / Rounded corners
+    shadow-lg — ظل خارجي / Large shadow
+    flex — عرض العناصر بجانب بعض / Flex layout
+    items-center — توسيط عمودي / Vertically centered
+    space-x-3 — مسافة أفقية بين العناصر / Horizontal spacing
+    font-sans — خط بدون زوائد / Sans-serif font
+    z-50 — فوق كل العناصر / High stacking order
+    -->
+
+    <div id="time" class="text-lg font-semibold"></div> <!-- 
+    div — عنصر مخصص للوقت / Time display container
+    id="time" — سيملأه JavaScript / ID used by JavaScript
+    class — حجم النص متوسط وغامق / Large text + bold
+    -->
+
+    <div id="weather" class="flex items-center space-x-2"> <!-- 
+    id="weather" — سيملأه JavaScript / Weather container
+    flex — عرض بجانب بعض / Horizontal flex
+    space-x-2 — مسافة بسيطة بين العناصر / Small gap
+    -->
+
+      <img id="weatherIcon" src="" alt="Weather Icon" class="w-8 h-8" /> <!-- 
+      img — صورة الأيقونة / Weather icon image
+      id="weatherIcon" — معرف الصورة / ID
+      src — مصدر الصورة / Image source (empty for now)
+      alt — نص بديل / Alternative text
+      class="w-8 h-8" — عرض وارتفاع 8 وحدات / Width and height = 8
+      -->
+
+      <div id="weatherDesc" class="text-sm"></div> <!-- 
+      id="weatherDesc" — وصف الطقس / Weather description
+      class="text-sm" — حجم نص صغير / Small text
+      -->
+
+      <div id="temperature" class="text-lg font-bold ml-2"></div> <!-- 
+      id="temperature" — درجة الحرارة / Temperature container
+      class — نص كبير / خط عريض / Large bold text
+      ml-2 — مسافة من اليسار / Left margin
+      -->
+
+    </div>
+  </div>
+
+  <!-- رأس الصفحة الرئيسي / Main header -->
+  <header class="container text-center my-8 content-wrapper shadow-lg rounded-xl border border-blue-400"> 
+    <!-- container — حاوية مركزية / Responsive container
+    text-center — توسيط النص / Center text
+    my-8 — هوامش عمودية / Vertical margin
+    shadow-lg — ظل كبير / Large shadow
+    rounded-xl — زوايا مدورة كبيرة / Extra rounded corners
+    border — وجود إطار / Show border
+    border-blue-400 — لون الإطار أزرق فاتح / Blue border
+    -->
+
+    <h1 class="text-5xl font-extrabold text-cyan-400 drop-shadow-lg mb-4 tracking-wide">
+      ✨ Explore the Beauty of Tunisia <!-- 
+      h1 — عنوان رئيسي / Main heading
+      text-5xl — حجم خط كبير جدًا / Extra large font
+      font-extrabold — خط سميك جدًا / Extra bold
+      text-cyan-400 — لون سماوي فاتح / Cyan text color
+      drop-shadow-lg — ظل نص / Text shadow
+      mb-4 — هامش سفلي / Bottom margin
+      tracking-wide — توسيع التباعد بين الحروف / Letter spacing
+      -->
+    </h1>
+
+    <p class="text-lg text-blue-100 italic tracking-tight leading-relaxed">
+      Discover Tunisia’s most captivating cities — where
+      <span class="text-teal-200 font-semibold">history</span>,
+      <span class="text-teal-200 font-semibold">nature</span>, and
+      <span class="text-teal-200 font-semibold">culture</span>
+      come together in every corner.
+      <!-- 
+      p — فقرة الوصف / Paragraph
+      italic — خط مائل / Italic
+      tracking-tight — تقارب الحروف / Tight letter spacing
+      leading-relaxed — تباعد أسطر مريح / Line spacing
+      span — كلمة ملونة أو مميزة / Highlighted word
+      -->
+    </p>
+  </header>
+
+  <!-- قسم المدن / Cities container -->
+  <section id="citiesContainer" class="container text-center my-5 content-wrapper grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- 
+    section — قسم المحتوى / Section
+    grid — نظام الشبكة / Grid layout
+    grid-cols-1 — عمود واحد للموبايل / 1 column (mobile)
+    md:grid-cols-2 — عمودين للأجهزة المتوسطة / 2 columns (tablet)
+    lg:grid-cols-3 — ثلاثة أعمدة للشاشات الكبيرة / 3 columns (desktop)
+    gap-6 — فراغ بين العناصر / Space between cards
+    -->
+  </section>
+
+  <!-- التذييل / Footer -->
+  <footer class="text-center py-4 text-sm">
+    &copy; 2025 Discover Tunisia. All rights reserved.
+    <!-- &copy; — رمز حقوق النشر / Copyright symbol -->
+  </footer>
+
+  <!-- ربط ملف JavaScript الرئيسي / Link to main JS file -->
+  <script src="main.js"></script> <!-- 
+  script — وسم JavaScript / JavaScript tag
+  src — مصدر الملف / File path
+  -->
+
+</body>
+</html>

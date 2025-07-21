@@ -1,0 +1,74 @@
+/* إعادة تعيين الهوامش والحشوات لجميع العناصر / Reset margins and paddings for all elements */
+* { /* * = كل العناصر / Asterisk selects all elements */
+  margin: 0;          /* margin = الهامش الخارجي / Outer spacing */
+  padding: 0;         /* padding = الحشوة الداخلية / Inner spacing */
+  box-sizing: border-box; /* box-sizing = تحديد طريقة حساب العرض والارتفاع / Includes padding and border in total size */
+}
+
+/* تنسيقات عامة للجسم والصفحة / General styling for body and html */
+body, html {              /* body و html = عناصر الصفحة الرئيسية / Base page elements */
+  height: 100%;           /* height = طول العنصر بنسبة 100% من الشاشة / Full height */
+  font-family: 'Segoe UI', sans-serif; /* font-family = نوع الخط المستخدم / Font type (Segoe UI or sans-serif fallback) */
+  color: white;           /* color = اللون الافتراضي للنص / Default text color: white */
+  overflow-x: hidden;     /* overflow-x = منع التمرير الجانبي / Prevent horizontal scrolling */
+}
+
+/* تنسيق فيديو الخلفية / Styling the background video */
+#bgVideo {                /* #bgVideo = العنصر الذي يحتوي الفيديو / ID selector for video element */
+  position: fixed;        /* position = ثابت في مكانه / Fixed on screen */
+  top: 0;                 /* top = من أعلى الشاشة مباشرة / Start at top */
+  left: 0;                /* left = من اليسار / Start at left */
+  min-width: 100%;        /* min-width = يغطي كامل العرض / At least full width */
+  min-height: 100%;       /* min-height = يغطي كامل الطول / At least full height */
+  object-fit: cover;      /* object-fit = يملأ الشاشة بدون تشويه / Scale video to fill space */
+  z-index: -1;            /* z-index = خلف كل العناصر / Push behind other elements */
+  filter: brightness(0.4);/* filter = تقليل السطوع بنسبة 40% / Dim the brightness */
+}
+
+/* تنسيق الحاوية العامة للمحتوى / Styling main content wrapper */
+.content-wrapper {
+  background-color: rgba(0, 0, 0, 0.5); /* خلفية سوداء شفافة / Semi-transparent black background */
+  padding: 50px 20px;                  /* padding = 50px أعلى وأسفل، 20px يمين ويسار / Vertical and horizontal padding */
+  border-radius: 16px;                 /* زوايا مدورة 16px / Rounded corners */
+}
+
+/* تنسيق بطاقات المدن / Styling city cards */
+.card {
+  background-color: rgba(255, 255, 255, 0.85); /* خلفية بيضاء شفافة / Semi-transparent white */
+  color: #000;                                 /* اللون داخل البطاقة أسود / Black text inside card */
+  border: none;                                /* بدون حدود / No border */
+  border-radius: 12px;                         /* زوايا مستديرة 12px / Rounded corners */
+  overflow: hidden;                            /* إخفاء المحتوى الزائد / Hide overflow */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);    /* ظل خفيف حول البطاقة / Shadow effect */
+  transition: transform 0.3s ease;             /* تأثير انتقال ناعم عند التغيير / Smooth transition when hovering */
+}
+
+/* تأثير رفع البطاقة عند التمرير / Lift card on hover */
+.card:hover {
+  transform: translateY(-5px); /* تحرك البطاقة لأعلى بمقدار 5px / Move card upward by 5 pixels */
+}
+
+/* تنسيق عنوان الصفحة الرئيسي / Styling the main heading */
+h1 {
+  color: #00ccff; /* لون سماوي فاتح / Light cyan-blue color */
+  font-weight: bold; /* خط عريض / Bold font weight */
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* ظل خلف النص / Shadow under text */
+}
+
+/* تنسيق التذييل في أسفل الصفحة / Styling the footer */
+footer {
+  color: #aee2f9; /* لون أزرق سماوي ناعم / Soft sky-blue color */
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4); /* ظل خلف النص / Text shadow */
+}
+
+/* تنسيق صندوق الطقس والوقت / Weather and time box style */
+#weatherTime {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* مجموعة خطوط احتياطية لعرض جيد في كل المتصفحات / Font stack for cross-browser compatibility */
+}
+
+/* تنسيق أيقونة الطقس / Weather icon styling */
+#weatherIcon {
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.6)); 
+  /* drop-shadow = ظل خفيف تحت الأيقونة / Soft shadow under icon */
+}
